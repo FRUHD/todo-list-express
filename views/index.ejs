@@ -1,47 +1,49 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  <!-- code language -->
+<html lang="en">  <!-- engrish language -->
+<head>  <!-- for computer to read -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- for scaling / adaptive website -->
+    <title>Document</title>  <!-- title bar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  <!-- link to font awesome -->
+    <link rel="stylesheet" href="css/style.css">  <!-- link to css style sheet -->
+</head>
+<body>  <!-- here's what shows in the DOM -->
+<!-- whoopsie. this looks to be a duplicate. -->
+    <!-- <!DOCTYPE html>  
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Todo List: </h1>
-    <ul class="todoItems">
-    <% for(let i=0; i < items.length; i++) {%>
-        <li class="item">
-            <% if(items[i].completed === true) {%>
-                <span class='completed'><%= items[i].thing %></span>
-            <% }else{ %>
-                <span><%= items[i].thing %></span>
+<body> -->
+<!-- aaaaand we're back -->    
+    <h1>Todo List: </h1>  <!-- h1 is the most important item on the page -->
+    <ul class="todoItems">  <!-- unordered list -->
+    <% for(let i=0; i < items.length; i++) {%>  <!-- do a for loop for each item in array -->
+        <li class="item">  <!-- list item -->
+            <% if(items[i].completed === true) {%>  <!-- is it complete? yes? do this... -->
+                <span class='completed'><%= items[i].thing %></span>  <!-- add class 'completed' to item (likely for styling?) -->
+            <% }else{ %>  <!-- otherwise, do this... -->
+                <span><%= items[i].thing %></span>  <!-- display in list, but don't add the class -->
             <% } %>    
-            <span class='fa fa-trash'></span>
+            <span class='fa fa-trash'></span>  <!-- icon -->
         </li>
     <% } %>
     </ul>
 
-    <h2>Left to do: <%= left %></h2>
+    <h2>Left to do: <%= left %></h2>  <!-- count number of 'incomplete' tasks and show them here -->
 
-    <h2>Add A Todo:</h2>
+    <h2>Add A Todo:</h2>  <!-- this is a less important title -->
 
-    <form action="/addTodo" method="POST">
-        <input type="text" placeholder="Thing To Do" name="todoItem">
+    <form action="/addTodo" method="POST">  <!-- redirect once submitted -->
+        <input type="text" placeholder="Thing To Do" name="todoItem">  <!-- matches line 40ish in server with name -->
         <input type="submit">
     </form>
     
 
-    <script src='js/main.js'></script>
+    <script src='js/main.js'></script>  <!-- run with the javascripts. this is put at the bottom so it loads last and doesn't cause BLINK and mess up CSS/HTML rendering. blinking also allows the death angels to come closer to you. don't blink. -->
 </body>
 </html>
